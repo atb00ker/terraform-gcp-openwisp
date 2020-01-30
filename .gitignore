@@ -29,4 +29,5 @@ override.tf.json
 # example: *tfplan*
 
 # Credentials
+develop.config.tf
 account.json

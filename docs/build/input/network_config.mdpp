@@ -1,0 +1,21 @@
+### network_config
+
+Configuration options for VPC network & Google Cloud Network resources for deployment.
+
+```
+vpc_name                      : Name of the Google Cloud VPC that will be created.
+subnet_cidr                   : primary CIDR range of the subnet created in the region of the cluster.
+cluster_secondary_range_cidr  : Secondary CIDR range used by the cluster for assigning pod IP addresses.
+services_secondary_range_cidr : Secondary CIDR range used by the cluster for assigning services of ClusterIPs.
+http_loadbalancer_ip_name     : Name of the http loadbalancer that will be used as Ingress in kubernetes resources.
+openvpn_ip_name               : Name of the static IP address to be reserved for OpenVPN loadbalancer.
+freeradius_ip_name            : Name of the static IP address to be reserved for freeradius loadbalancer.
+openwisp_dns_zone_name        : Name for the DNS zone resource, created only when "use_cloud_dns" is set to true.
+openwisp_dns_name             : Holds the list of domains to be resolved by the peered zone. (example: example.com)
+openwisp_dns_records_ttl      : Time to live for all the records in the DNS Zone. (example: 300)
+subnet_flowlogs:
+  enable                      : (Boolean) Flag to enable flowlogs for the cluster subnet.
+  interval                    : https://www.terraform.io/docs/providers/google/r/compute_subnetwork.html#aggregation_interval
+  sampling                    : https://www.terraform.io/docs/providers/google/r/compute_subnetwork.html#flow_sampling
+  metadata                    : https://www.terraform.io/docs/providers/google/r/compute_subnetwork.html#metadata
+```

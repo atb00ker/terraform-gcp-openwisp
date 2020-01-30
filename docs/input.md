@@ -1,7 +1,19 @@
 # Input variables
 
-- `google_services`: Google Cloud configurations and services to be used deployment of
-    all the resources.
+The `six` input variables are documented below:
+
+1\.  [google_services](#google_services)
+2\.  [openwisp_services](#openwisp_services)
+3\.  [gce_persistent_disk](#gce_persistent_disk)
+4\.  [network_config](#network_config)
+5\.  [gke_node_groups](#gke_node_groups)
+6\.  [gke_cluster](#gke_cluster)
+
+<a name="google_services"></a>
+
+### 1\. google_services
+
+Google Cloud configurations and services to be used deployment of all the resources.
 
 ```
 service_account             : Link to the JSON credential file of the account.
@@ -20,8 +32,12 @@ use_cloud_sql               : (Not available) Use Cloud SQL as database.
 use_cloud_dns               : (Boolean) Use DNS for setting up the IP addresses with
                                 domains to access OpenWISP.
 ```
+<a name="openwisp_services"></a>
 
-- `openwisp_services`: Flags for OpenWISP services to be used.
+### 2\. openwisp_services
+
+Flags for enabling/disabling OpenWISP services to be used.
+
 ```
 use_openvpn    : (Boolean) Setup OpenVPN for management inside cluster.
 use_freeradius : (Boolean) Setup freeradius inside cluster.
@@ -29,17 +45,22 @@ setup_database : (Boolean) Setup database inside cluster. You would want to
                     set this as false when you have your own database server or
                     you are using cloud SQL.
 ```
+<a name="gce_persistent_disk"></a>
 
-- `gce_persistent_disk`: Setup the compute disk that is used as persistent storage for data like: Media(Images), Static(JS/CSS), Database and Maintaince HTML.
+### 3\. gce_persistent_disk
+
+Setup the compute disk that is used as persistent storage for data like: Media(Images), Static(JS/CSS), Database and Maintaince HTML.
 
 ```
 name : https://www.terraform.io/docs/providers/google/r/compute_disk.html#name
 type : https://www.terraform.io/docs/providers/google/r/compute_disk.html#type
 size : https://www.terraform.io/docs/providers/google/r/compute_disk.html#size
 ```
+<a name="network_config"></a>
 
-- `network_config`: Configuration options for VPC network & Google Cloud Network resources for deployment.
+### 4\. network_config
 
+Configuration options for VPC network & Google Cloud Network resources for deployment.
 
 ```
 vpc_name                      : Name of the Google Cloud VPC that will be created.
@@ -58,8 +79,11 @@ subnet_flowlogs:
   sampling                    : https://www.terraform.io/docs/providers/google/r/compute_subnetwork.html#flow_sampling
   metadata                    : https://www.terraform.io/docs/providers/google/r/compute_subnetwork.html#metadata
 ```
+<a name="gke_node_groups"></a>
 
-- `gke_node_groups`: List of Google Kubernets Engine node pools
+### 5\. gke_node_groups
+
+List of Google Kubernets Engine node pools
 
 ```
 pool_name           = Name of the Node pool.
@@ -75,8 +99,12 @@ is_preemptible      = (Boolean) Flag for Compute instances to be boolean.
 instance_image_type = https://www.terraform.io/docs/providers/google/r/container_cluster.html#disk_type
 machine_type        = https://www.terraform.io/docs/providers/google/r/container_cluster.html#machine_type
 ```
+<a name="gke_cluster"></a>
 
-- `gke_cluster`: Google Kubernetes Engine cluster configuration.
+### 6\. gke_cluster
+
+Google Kubernetes Engine cluster configuration.
+
 ```
 cluster_name               : Name of the Cluster.
 kubernetes_version         : kubernetes master version.

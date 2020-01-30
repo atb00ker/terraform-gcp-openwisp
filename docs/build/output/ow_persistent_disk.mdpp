@@ -1,0 +1,3 @@
+### ow_persistent_disk
+
+The values of the 'gce_persistent_disk' variable to be used by the kubernetes module.

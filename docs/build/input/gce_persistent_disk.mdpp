@@ -1,0 +1,9 @@
+### gce_persistent_disk
+
+Setup the compute disk that is used as persistent storage for data like: Media(Images), Static(JS/CSS), Database and Maintaince HTML.
+
+```
+name : https://www.terraform.io/docs/providers/google/r/compute_disk.html#name
+type : https://www.terraform.io/docs/providers/google/r/compute_disk.html#type
+size : https://www.terraform.io/docs/providers/google/r/compute_disk.html#size
+```

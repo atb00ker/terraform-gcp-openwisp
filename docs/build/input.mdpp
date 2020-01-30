@@ -1,0 +1,12 @@
+# Input variables
+
+The `six` input variables are documented below:
+
+!TOC
+
+!INCLUDE "docs/build/input/google_services.mdpp"
+!INCLUDEURL "https://raw.githubusercontent.com/atb00ker/terraform-kubernetes-openwisp/master/docs/build/input/openwisp_services.mdpp"
+!INCLUDE "docs/build/input/gce_persistent_disk.mdpp"
+!INCLUDE "docs/build/input/network_config.mdpp"
+!INCLUDE "docs/build/input/gke_node_groups.mdpp"
+!INCLUDE "docs/build/input/gke_cluster.mdpp"

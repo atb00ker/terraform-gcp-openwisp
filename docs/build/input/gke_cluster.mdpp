@@ -1,0 +1,17 @@
+### gke_cluster
+
+Google Kubernetes Engine cluster configuration.
+
+```
+cluster_name               : Name of the Cluster.
+kubernetes_version         : kubernetes master version.
+logging_service            : URL of the logging service.
+monitoring_service         : URL of the monitoring service.
+master_ipv4_cidr_block     : https://www.terraform.io/docs/providers/google/r/container_cluster.html#master_ipv4_cidr_block
+regional                   : (Boolean) Flag to create a zonal or regional cluster.
+enable_private_endpoint    : https://www.terraform.io/docs/providers/google/r/container_cluster.html#enable_private_endpoint
+daily_maintenance_window   : https://www.terraform.io/docs/providers/google/r/container_cluster.html#daily_maintenance_window
+authorized_networks (list):
+  display_name             : https://www.terraform.io/docs/providers/google/r/container_cluster.html#display_name
+  cidr_block               : https://www.terraform.io/docs/providers/google/r/container_cluster.html#cidr_block
+```

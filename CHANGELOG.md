@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- module output: infrastructure_provider.cluster_ip_range
+- module output: infrastructure_provider.pod_ip_range
+
+### Removed
+- module output: infrastructure_provider.project
+- module output: infrastructure_provider.use_cloud_database
+
 ## [0.1.0-alpha.2] - 2020-01-31
 
 - Basic setup of infrastructure requirement for using OpenWISP on Google Kubernetes Engine.

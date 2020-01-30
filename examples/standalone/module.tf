@@ -2,7 +2,8 @@
 # about these options in the documentation.
 
 module "infrastructure" {
-  source = "github.com/atb00ker/terraform-gcp-openwisp"
+  source  = "atb00ker/openwisp/gcp"
+  version = "0.1.0-alpha.2"
 
   google_services = {
     service_account             = file("account.json")

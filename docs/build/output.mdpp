@@ -1,0 +1,11 @@
+# Output variables
+
+The `five` output variables are documented below:
+
+!TOC
+
+!INCLUDEURL "https://raw.githubusercontent.com/atb00ker/terraform-kubernetes-openwisp/master/docs/build/input/infrastructure_provider.mdpp"
+!INCLUDEURL "https://raw.githubusercontent.com/atb00ker/terraform-kubernetes-openwisp/master/docs/build/input/openwisp_services.mdpp"
+!INCLUDEURL "https://raw.githubusercontent.com/atb00ker/terraform-kubernetes-openwisp/master/docs/build/input/ow_cluster_ready.mdpp"
+!INCLUDEURL "https://raw.githubusercontent.com/atb00ker/terraform-kubernetes-openwisp/master/docs/build/input/ow_kubectl_ready.mdpp"
+!INCLUDE "docs/build/output/ow_persistent_disk.mdpp"
