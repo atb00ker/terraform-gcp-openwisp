@@ -1,6 +1,6 @@
 # Terraform(GCP): OpenWISP
 
-[![[Terraform]](https://img.shields.io/badge/terraform-openwisp-blue)](https://registry.terraform.io/modules/atb00ker/openwisp/gcp/)
+[![Terraform](https://img.shields.io/badge/terraform-openwisp-blue)](https://registry.terraform.io/modules/atb00ker/openwisp/gcp)
 [![GitHub license](https://img.shields.io/github/license/atb00ker/terraform-gcp-openwisp.svg)](https://github.com/openwisp/terraform-gcp-openwisp/blob/master/LICENSE)
 
 Terraform files for deploying docker-openwisp infrastructure in Google Cloud.
@@ -30,6 +30,8 @@ kubernetes cluster.
 
 ## Usage
 
+**Note: The following links work only when you are viewing on github.com**
+
 ### Variables
 - Inputs  documentation available [here](docs/input.md).
 - Outputs documentation available [here](docs/output.md).
@@ -54,8 +56,6 @@ terraform destroy \
 
 Remember to use terraform when you want to destory a resource created by terraform.
 To destroy all resources: `terraform destroy`
-
-4. To set your domains with your registrar, find NS records [here](https://console.cloud.google.com/net-services/dns/zones/openwisp-dns).
 
 ## Contribute to documentation
 

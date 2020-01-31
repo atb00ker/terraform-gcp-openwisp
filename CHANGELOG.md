@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-alpha.3] - 2020-02-01
+
 ### Added
 - module output: infrastructure_provider.cluster_ip_range
 - module output: infrastructure_provider.pod_ip_range

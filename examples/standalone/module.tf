@@ -3,7 +3,7 @@
 
 module "infrastructure" {
   source  = "atb00ker/openwisp/gcp"
-  version = "0.1.0-alpha.2"
+  version = "0.1.0-alpha.3"
 
   google_services = {
     service_account             = file("account.json")
