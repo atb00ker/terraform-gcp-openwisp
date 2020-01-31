@@ -54,7 +54,7 @@ terraform destroy \
 
 ### Destroy:
 
-Remember to use terraform when you want to destory a resource created by terraform.
+Remember to use terraform when you want to destroy a resource created by terraform.
 To destroy all resources: `terraform destroy`
 
 ## Contribute to documentation
