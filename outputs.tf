@@ -17,12 +17,13 @@ locals {
     openvpn_loadbalancer_address    = local._vpnlb
     freeradius_loadbalancer_address = local._frlb
     cluster = {
-      name             = google_container_cluster.openwisp_cluster.name
-      cluster_ip_range = var.network_config.cluster_secondary_range_cidr
-      pod_ip_range     = var.network_config.services_secondary_range_cidr
-      endpoint         = google_container_cluster.openwisp_cluster.endpoint
-      ca_certificate   = google_container_cluster.openwisp_cluster.master_auth[0].cluster_ca_certificate
-      access_token     = data.google_client_config.kubernetes_google_access.access_token
+      name                = google_container_cluster.openwisp_cluster.name
+      services_cidr_range = var.network_config.services_cidr_range
+      pods_cidr_range     = var.network_config.pods_cidr_range
+      nodes_cidr_range    = var.network_config.subnet_cidr
+      endpoint            = google_container_cluster.openwisp_cluster.endpoint
+      ca_certificate      = google_container_cluster.openwisp_cluster.master_auth[0].cluster_ca_certificate
+      access_token        = data.google_client_config.kubernetes_google_access.access_token
     }
   }
 }

@@ -3,7 +3,7 @@
 
 module "infrastructure" {
   source  = "atb00ker/openwisp/gcp"
-  version = "0.1.0-alpha.3"
+  version = "0.1.0-alpha.4"
 
   google_services = {
     service_account             = file("account.json")
@@ -86,16 +86,16 @@ module "infrastructure" {
 
   network_config = {
     # OpenWISP deployment network options
-    vpc_name                      = "openwisp-network"
-    subnet_cidr                   = "10.130.0.0/20"
-    services_secondary_range_cidr = "10.0.0.0/14"
-    cluster_secondary_range_cidr  = "10.100.0.0/14"
-    http_loadbalancer_ip_name     = "openwisp-http-loadbalancer-ip"
-    openvpn_ip_name               = "openwisp-openvpn-ip"
-    freeradius_ip_name            = "openwisp-freeradius-ip"
-    openwisp_dns_name             = "example.com"
-    openwisp_dns_zone_name        = "openwisp-dns"
-    openwisp_dns_records_ttl      = 300
+    vpc_name                  = "openwisp-network"
+    subnet_cidr               = "10.130.0.0/20"
+    services_cidr_range       = "10.0.0.0/14"
+    pods_cidr_range           = "10.100.0.0/14"
+    http_loadbalancer_ip_name = "openwisp-http-loadbalancer-ip"
+    openvpn_ip_name           = "openwisp-openvpn-ip"
+    freeradius_ip_name        = "openwisp-freeradius-ip"
+    openwisp_dns_name         = "example.com"
+    openwisp_dns_zone_name    = "openwisp-dns"
+    openwisp_dns_records_ttl  = 300
     subnet_flowlogs = {
       enable   = true
       interval = "INTERVAL_10_MIN"

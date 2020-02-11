@@ -35,16 +35,16 @@ variable "gce_persistent_disk" {
 
 variable "network_config" {
   type = object({
-    vpc_name                      = string
-    subnet_cidr                   = string
-    cluster_secondary_range_cidr  = string
-    services_secondary_range_cidr = string
-    http_loadbalancer_ip_name     = string
-    openvpn_ip_name               = string
-    freeradius_ip_name            = string
-    openwisp_dns_zone_name        = string
-    openwisp_dns_name             = string
-    openwisp_dns_records_ttl      = number
+    vpc_name                  = string
+    subnet_cidr               = string
+    pods_cidr_range           = string
+    services_cidr_range       = string
+    http_loadbalancer_ip_name = string
+    openvpn_ip_name           = string
+    freeradius_ip_name        = string
+    openwisp_dns_zone_name    = string
+    openwisp_dns_name         = string
+    openwisp_dns_records_ttl  = number
     subnet_flowlogs = object({
       enable   = bool
       interval = string

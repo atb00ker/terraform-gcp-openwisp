@@ -2,12 +2,12 @@
 
 The `six` input variables are documented below:
 
-1\.  [google_services](#google_services)
-2\.  [openwisp_services](#openwisp_services)
-3\.  [gce_persistent_disk](#gce_persistent_disk)
-4\.  [network_config](#network_config)
-5\.  [gke_node_groups](#gke_node_groups)
-6\.  [gke_cluster](#gke_cluster)
+1\.  [google_services](#google_services)  
+2\.  [openwisp_services](#openwisp_services)  
+3\.  [gce_persistent_disk](#gce_persistent_disk)  
+4\.  [network_config](#network_config)  
+5\.  [gke_node_groups](#gke_node_groups)  
+6\.  [gke_cluster](#gke_cluster)  
 
 <a name="google_services"></a>
 
@@ -65,8 +65,8 @@ Configuration options for VPC network & Google Cloud Network resources for deplo
 ```
 vpc_name                      : Name of the Google Cloud VPC that will be created.
 subnet_cidr                   : primary CIDR range of the subnet created in the region of the cluster.
-cluster_secondary_range_cidr  : Secondary CIDR range used by the cluster for assigning pod IP addresses.
-services_secondary_range_cidr : Secondary CIDR range used by the cluster for assigning services of ClusterIPs.
+pods_cidr_range               : Secondary CIDR range used by the cluster for assigning pod IP addresses.
+services_cidr_range           : Secondary CIDR range used by the cluster for assigning services of ClusterIPs.
 http_loadbalancer_ip_name     : Name of the http loadbalancer that will be used as Ingress in kubernetes resources.
 openvpn_ip_name               : Name of the static IP address to be reserved for OpenVPN loadbalancer.
 freeradius_ip_name            : Name of the static IP address to be reserved for freeradius loadbalancer.

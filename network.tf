@@ -20,12 +20,12 @@ resource "google_compute_subnetwork" "openwisp_network_cluster_subnet" {
   # Secondary IP ranges required for the kubernetes cluster
   secondary_ip_range {
     range_name    = "cluster-pods-ip-range"
-    ip_cidr_range = var.network_config.cluster_secondary_range_cidr
+    ip_cidr_range = var.network_config.pods_cidr_range
   }
 
   secondary_ip_range {
     range_name    = "cluster-services-ip-range"
-    ip_cidr_range = var.network_config.services_secondary_range_cidr
+    ip_cidr_range = var.network_config.services_cidr_range
   }
 
   dynamic "log_config" {

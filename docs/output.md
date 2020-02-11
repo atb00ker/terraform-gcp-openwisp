@@ -2,11 +2,11 @@
 
 The `five` output variables are documented below:
 
-1\.  [infrastructure_provider](#infrastructure_provider)
-2\.  [openwisp_services](#openwisp_services)
-3\.  [ow_cluster_ready](#ow_cluster_ready)
-4\.  [ow_kubectl_ready](#ow_kubectl_ready)
-5\.  [ow_persistent_disk](#ow_persistent_disk)
+1\.  [infrastructure_provider](#infrastructure_provider)  
+2\.  [openwisp_services](#openwisp_services)  
+3\.  [ow_cluster_ready](#ow_cluster_ready)  
+4\.  [ow_kubectl_ready](#ow_kubectl_ready)  
+5\.  [ow_persistent_disk](#ow_persistent_disk)  
 
 <a name="infrastructure_provider"></a>
 
@@ -22,10 +22,11 @@ openvpn_loadbalancer_address    : IP Address to be assigned for openvpn kubernet
 freeradius_loadbalancer_address : IP Address to be assigned for freeradius kubernetes loadbalancer.
 cluster:
 name                            : Name of the kubernetes cluster.
-cluster_ip_range                : Address range for ClusterIP services.
-pod_ip_range                    : Address range for pods.
+nodes_cidr_range                : Address range for pods.
+pods_cidr_range                 : Address range for pods.
+services_cidr_range             : Address range for ClusterIP services.
 endpoint                        : Kubernetes cluster endpoint IP address. (example: 192.168.2.25)
-ca_certificate                  : ca_certificate of the cluster that needs to be converted to base64 for authentication.
+ca_certificate                  : ca_certificate of the cluster that needs to be decoded in base64 for authentication.
 access_token                    : Access token required for authentication to perform actions in the cluster.
 ```
 <a name="openwisp_services"></a>
