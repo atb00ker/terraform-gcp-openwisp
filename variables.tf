@@ -68,6 +68,7 @@ variable "gke_node_groups" {
     is_preemptible      = bool
     disk_type           = string
     instance_image_type = string
+    oauth_scopes        = list(string)
     machine_type        = string
     enable_autoscaling  = bool
   }))

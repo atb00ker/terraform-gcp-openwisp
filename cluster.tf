@@ -84,6 +84,7 @@ resource "google_container_node_pool" "gke_node_groups" {
     disk_type    = var.gke_node_groups[count.index].disk_type
     image_type   = var.gke_node_groups[count.index].instance_image_type
     machine_type = var.gke_node_groups[count.index].machine_type
+    oauth_scopes = var.gke_node_groups[count.index].oauth_scopes
 
     metadata = {
       disable-legacy-endpoints = "true"

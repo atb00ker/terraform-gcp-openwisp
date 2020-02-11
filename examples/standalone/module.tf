@@ -2,9 +2,9 @@
 # about these options in the documentation.
 
 module "infrastructure" {
-  source  = "atb00ker/openwisp/gcp"
-  version = "0.1.0-alpha.4"
-
+  # source  = "atb00ker/openwisp/gcp"
+  # version = "0.1.0-alpha.4"
+  source = "../../"
   google_services = {
     service_account             = file("account.json")
     project_id                  = "example"
@@ -37,6 +37,10 @@ module "infrastructure" {
       disk_type           = "pd-standard"
       instance_image_type = "COS"
       machine_type        = "n1-standard-1"
+      oauth_scopes = [
+        "https://www.googleapis.com/auth/logging.write",
+        "https://www.googleapis.com/auth/monitoring",
+      ]
       }, {
       pool_name           = "preemptible-instance-pool"
       enable_autoscaling  = false
@@ -50,6 +54,7 @@ module "infrastructure" {
       disk_type           = "pd-standard"
       instance_image_type = "COS"
       machine_type        = "n1-standard-1"
+      oauth_scopes        = []
     }
   ]
 

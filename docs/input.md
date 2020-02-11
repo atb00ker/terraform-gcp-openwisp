@@ -86,18 +86,19 @@ subnet_flowlogs:
 List of Google Kubernets Engine node pools
 
 ```
-pool_name           = Name of the Node pool.
-initial_node_count  = Initial of Compute VMs.
-enable_autoscaling  = (Boolean) Flag to enable autoscaling on the node.
-min_node_count      = Minimum allowed nodes.
-max_node_count      = Maximum allowed nodes.
-disk_size_gb        = Allocated disk space to each node.
-disk_type           = Allocated disk type for each node.
-auto_repair         = (Boolean) https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-repair
-auto_upgrade        = (Boolean) https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-upgrades
-is_preemptible      = (Boolean) Flag for Compute instances to be boolean.
-instance_image_type = https://www.terraform.io/docs/providers/google/r/container_cluster.html#disk_type
-machine_type        = https://www.terraform.io/docs/providers/google/r/container_cluster.html#machine_type
+pool_name           : Name of the Node pool.
+initial_node_count  : Initial of Compute VMs.
+enable_autoscaling  : (Boolean) Flag to enable autoscaling on the node.
+min_node_count      : Minimum allowed nodes.
+max_node_count      : Maximum allowed nodes.
+disk_size_gb        : Allocated disk space to each node.
+disk_type           : Allocated disk type for each node.
+auto_repair         : (Boolean) https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-repair
+auto_upgrade        : (Boolean) https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-upgrades
+is_preemptible      : (Boolean) Flag for Compute instances to be boolean.
+oauth_scopes        : https://www.terraform.io/docs/providers/google/r/container_cluster.html#oauth_scopes
+instance_image_type : https://www.terraform.io/docs/providers/google/r/container_cluster.html#disk_type
+machine_type        : https://www.terraform.io/docs/providers/google/r/container_cluster.html#machine_type
 ```
 <a name="gke_cluster"></a>
 
