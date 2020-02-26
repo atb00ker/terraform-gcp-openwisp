@@ -3,7 +3,13 @@
 Setup the compute disk that is used as persistent storage for data like: Media(Images), Static(JS/CSS), Database and Maintaince HTML.
 
 ```
-name : https://www.terraform.io/docs/providers/google/r/compute_disk.html#name
-type : https://www.terraform.io/docs/providers/google/r/compute_disk.html#type
-size : https://www.terraform.io/docs/providers/google/r/compute_disk.html#size
+name               : https://www.terraform.io/docs/providers/google/r/compute_disk.html#name
+type               : https://www.terraform.io/docs/providers/google/r/compute_disk.html#type
+size               : https://www.terraform.io/docs/providers/google/r/compute_disk.html#size
+snapshots:
+  name             : Name of the automated snapshot resource
+  hours_in_cycle   : https://www.terraform.io/docs/providers/google/r/compute_resource_policy.html#hours_in_cycle
+  start_time       : https://www.terraform.io/docs/providers/google/r/compute_resource_policy.html#start_time-1
+  retention_days   : https://www.terraform.io/docs/providers/google/r/compute_resource_policy.html#max_retention_days
+  on_disk_deletion : https://www.terraform.io/docs/providers/google/r/compute_resource_policy.html#on_source_disk_delete
 ```

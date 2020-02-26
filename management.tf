@@ -8,6 +8,9 @@ resource "google_compute_router" "openwisp_cluster_router" {
 }
 
 resource "google_compute_router_nat" "openwisp_connection_nat" {
+  # Cloud source repository - Free tier - About $2/month, limitation: Google repository only
+  # Cloud NAT - About $0.044/hr + $0.045/GB + $0.12, No limitation of resource location
+  # Public cluster (Security Issues) - About $3/instance/month + $0.12
   name                               = "openwisp-management-nat"
   router                             = google_compute_router.openwisp_cluster_router.name
   nat_ip_allocate_option             = "AUTO_ONLY"

@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - option: gke_node_groups.oauth_scopes
+- support for Cloud SQL
+- dependency: added google-beta provider
+- auto-snapshots of openwisp-disk
+- renamed output "infrastructure_provider" -> "infrastructure"
 
 ## [0.1.0-alpha.4] - 2020-02-12
 ### Changed

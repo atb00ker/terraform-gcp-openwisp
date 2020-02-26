@@ -1,6 +1,6 @@
 # Input variables
 
-The `six` input variables are documented below:
+The `seven` input variables are documented below:
 
 1\.  [google_services](#google_services)  
 2\.  [openwisp_services](#openwisp_services)  
@@ -8,6 +8,7 @@ The `six` input variables are documented below:
 4\.  [network_config](#network_config)  
 5\.  [gke_node_groups](#gke_node_groups)  
 6\.  [gke_cluster](#gke_cluster)  
+7\.  [database_cloudsql](#database_cloudsql)  
 
 <a name="google_services"></a>
 
@@ -44,6 +45,8 @@ use_freeradius : (Boolean) Setup freeradius inside cluster.
 setup_database : (Boolean) Setup database inside cluster. You would want to
                     set this as false when you have your own database server or
                     you are using cloud SQL.
+setup_fresh    : (Boolean) Flag to initial setup of openwisp. Only required when you
+                    are setting up openwisp & openwisp-database for the first time.
 ```
 <a name="gce_persistent_disk"></a>
 
@@ -52,9 +55,15 @@ setup_database : (Boolean) Setup database inside cluster. You would want to
 Setup the compute disk that is used as persistent storage for data like: Media(Images), Static(JS/CSS), Database and Maintaince HTML.
 
 ```
-name : https://www.terraform.io/docs/providers/google/r/compute_disk.html#name
-type : https://www.terraform.io/docs/providers/google/r/compute_disk.html#type
-size : https://www.terraform.io/docs/providers/google/r/compute_disk.html#size
+name               : https://www.terraform.io/docs/providers/google/r/compute_disk.html#name
+type               : https://www.terraform.io/docs/providers/google/r/compute_disk.html#type
+size               : https://www.terraform.io/docs/providers/google/r/compute_disk.html#size
+snapshots:
+  name             : Name of the automated snapshot resource
+  hours_in_cycle   : https://www.terraform.io/docs/providers/google/r/compute_resource_policy.html#hours_in_cycle
+  start_time       : https://www.terraform.io/docs/providers/google/r/compute_resource_policy.html#start_time-1
+  retention_days   : https://www.terraform.io/docs/providers/google/r/compute_resource_policy.html#max_retention_days
+  on_disk_deletion : https://www.terraform.io/docs/providers/google/r/compute_resource_policy.html#on_source_disk_delete
 ```
 <a name="network_config"></a>
 
@@ -119,3 +128,29 @@ authorized_networks (list):
   display_name             : https://www.terraform.io/docs/providers/google/r/container_cluster.html#display_name
   cidr_block               : https://www.terraform.io/docs/providers/google/r/container_cluster.html#cidr_block
 ```
+<a name="database_cloudsql"></a>
+
+### 7\. database_cloudsql
+
+Google Kubernetes Engine cluster configuration.
+
+```
+name              : Name of the Cloud SQL instance.
+tier              : https://www.terraform.io/docs/providers/google/r/sql_database_instance.html#tier
+username          : Username to login to database
+password          : Password to login to database
+database          : Name of the database to be used by openwisp
+require_ssl       : (Boolean) Flag to making SSL connection with database optional (Remember to edit "sslmode" accordingly)
+sslmode           : [PSQL database sslmodes](https://www.postgresql.org/docs/9.1/libpq-ssl.html)
+availability_type : https://www.terraform.io/docs/providers/google/r/sql_database_instance.html#availability_type
+disk_size         : Initial size for database (automatically increases with requirment.)
+disk_type         : https://www.terraform.io/docs/providers/google/r/sql_database_instance.html#disk_type
+auto_backup:
+  enabled         : (Boolean) Flag for enabling autobackup
+  start_time      : Start-time window (in UTC) for backup.
+maintaince:
+  day             : https://www.terraform.io/docs/providers/google/r/sql_database_instance.html#day
+  hour            : https://www.terraform.io/docs/providers/google/r/sql_database_instance.html#hour
+  track           : https://www.terraform.io/docs/providers/google/r/sql_database_instance.html#update_track
+```
+

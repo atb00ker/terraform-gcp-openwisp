@@ -1,0 +1,24 @@
+### database_cloudsql
+
+Google Kubernetes Engine cluster configuration.
+
+```
+name              : Name of the Cloud SQL instance.
+tier              : https://www.terraform.io/docs/providers/google/r/sql_database_instance.html#tier
+username          : Username to login to database
+password          : Password to login to database
+database          : Name of the database to be used by openwisp
+require_ssl       : (Boolean) Flag to making SSL connection with database optional (Remember to edit "sslmode" accordingly)
+sslmode           : [PSQL database sslmodes](https://www.postgresql.org/docs/9.1/libpq-ssl.html)
+availability_type : https://www.terraform.io/docs/providers/google/r/sql_database_instance.html#availability_type
+disk_size         : Initial size for database (automatically increases with requirment.)
+disk_type         : https://www.terraform.io/docs/providers/google/r/sql_database_instance.html#disk_type
+auto_backup:
+  enabled         : (Boolean) Flag for enabling autobackup
+  start_time      : Start-time window (in UTC) for backup.
+maintaince:
+  day             : https://www.terraform.io/docs/providers/google/r/sql_database_instance.html#day
+  hour            : https://www.terraform.io/docs/providers/google/r/sql_database_instance.html#hour
+  track           : https://www.terraform.io/docs/providers/google/r/sql_database_instance.html#update_track
+```
+

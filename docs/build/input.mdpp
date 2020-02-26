@@ -1,6 +1,6 @@
 # Input variables
 
-The `six` input variables are documented below:
+The `seven` input variables are documented below:
 
 !TOC
 
@@ -10,3 +10,4 @@ The `six` input variables are documented below:
 !INCLUDE "docs/build/input/network_config.mdpp"
 !INCLUDE "docs/build/input/gke_node_groups.mdpp"
 !INCLUDE "docs/build/input/gke_cluster.mdpp"
+!INCLUDE "docs/build/input/database_cloudsql.mdpp"

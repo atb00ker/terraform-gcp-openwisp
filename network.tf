@@ -121,3 +121,24 @@ resource "google_dns_record_set" "openvpn_dns_records" {
   ttl          = var.network_config.openwisp_dns_records_ttl
   type         = "A"
 }
+
+
+# (Optional) Cloud SQL
+
+resource "google_compute_global_address" "service_networking_address" {
+  depends_on    = [google_project_service.openwisp_apis]
+  count         = var.google_services.use_cloud_sql ? 1 : 0
+  name          = "service-networking-address"
+  purpose       = "VPC_PEERING"
+  address_type  = "INTERNAL"
+  prefix_length = 16
+  network       = google_compute_network.openwisp_network.self_link
+}
+
+resource "google_service_networking_connection" "openwisp_internal_network" {
+  depends_on              = [google_project_service.openwisp_apis]
+  count                   = var.google_services.use_cloud_sql ? 1 : 0
+  network                 = google_compute_network.openwisp_network.self_link
+  service                 = "servicenetworking.googleapis.com"
+  reserved_peering_ranges = [google_compute_global_address.service_networking_address[0].name]
+}

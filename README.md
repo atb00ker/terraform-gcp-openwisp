@@ -15,9 +15,10 @@ kubernetes cluster.
     - Compute Network Admin
     - Compute Security Admin
     - Kubernetes Engine Admin
-    - DNS Administrator
     - Service Account User
     - Service Usage Admin
+    - DNS Administrator (When `google_services.use_cloud_dns` is `true`)
+    - Cloud SQL Admin (When `google_services.use_cloud_sql` is `true`)
 
 2. Enable following APIs allow terraform to create resources:
 

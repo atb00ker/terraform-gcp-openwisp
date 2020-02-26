@@ -20,6 +20,7 @@ variable "openwisp_services" {
     use_openvpn    = bool
     use_freeradius = bool
     setup_database = bool
+    setup_fresh    = bool
   })
   description = "Find documentation here: https://github.com/atb00ker/terraform-gcp-openwisp/blob/master/docs/input.md"
 }
@@ -29,6 +30,38 @@ variable "gce_persistent_disk" {
     name = string
     type = string
     size = number
+    snapshots = object({
+      name             = string
+      hours_in_cycle   = string
+      start_time       = string
+      retention_days   = number
+      on_disk_deletion = string
+    })
+  })
+  description = "Find documentation here: https://github.com/atb00ker/terraform-gcp-openwisp/blob/master/docs/input.md"
+}
+
+variable "database_cloudsql" {
+  type = object({
+    name              = string
+    tier              = string
+    require_ssl       = bool
+    availability_type = string
+    disk_size         = number
+    disk_type         = string
+    sslmode           = string
+    username          = string
+    password          = string
+    database          = string
+    auto_backup = object({
+      enabled    = bool
+      start_time = string
+    })
+    maintaince = object({
+      day   = number
+      hour  = number
+      track = string
+    })
   })
   description = "Find documentation here: https://github.com/atb00ker/terraform-gcp-openwisp/blob/master/docs/input.md"
 }
@@ -55,7 +88,6 @@ variable "network_config" {
   description = "Find documentation here: https://github.com/atb00ker/terraform-gcp-openwisp/blob/master/docs/input.md"
 }
 
-
 variable "gke_node_groups" {
   type = list(object({
     pool_name           = string
@@ -74,7 +106,6 @@ variable "gke_node_groups" {
   }))
   description = "Find documentation here: https://github.com/atb00ker/terraform-gcp-openwisp/blob/master/docs/input.md"
 }
-
 
 variable "gke_cluster" {
   type = object({

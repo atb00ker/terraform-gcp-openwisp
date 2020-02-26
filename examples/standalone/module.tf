@@ -2,25 +2,26 @@
 # about these options in the documentation.
 
 module "infrastructure" {
-  # source  = "atb00ker/openwisp/gcp"
-  # version = "0.1.0-alpha.4"
-  source = "../../"
+  source  = "atb00ker/openwisp/gcp"
+  version = "0.1.0-alpha.5"
+
   google_services = {
     service_account             = file("account.json")
-    project_id                  = "example"
+    project_id                  = "sample"
     region                      = "asia-south1"
     zone                        = "asia-south1-a"
+    configure_gloud             = true
     common_resource_description = "This resource is created by terraform for OpenWISP deployment."
     use_cloud_sql               = false
-    use_cloud_dns               = true
-    configure_gloud             = true
+    use_cloud_dns               = false
     disable_apis_on_destroy     = false
   }
 
   openwisp_services = {
-    use_openvpn    = true
+    use_openvpn    = false
     use_freeradius = true
     setup_database = true
+    setup_fresh    = true
   }
 
   gke_node_groups = [
@@ -38,8 +39,8 @@ module "infrastructure" {
       instance_image_type = "COS"
       machine_type        = "n1-standard-1"
       oauth_scopes = [
-        "https://www.googleapis.com/auth/logging.write",
         "https://www.googleapis.com/auth/monitoring",
+        "https://www.googleapis.com/auth/logging.write",
       ]
       }, {
       pool_name           = "preemptible-instance-pool"
@@ -65,6 +66,13 @@ module "infrastructure" {
     name = "openwisp-disk"
     type = "pd-standard"
     size = 10
+    snapshots = {
+      name             = "openwisp-snapshots"
+      hours_in_cycle   = 6
+      start_time       = "03:00"
+      retention_days   = 10
+      on_disk_deletion = "KEEP_AUTO_SNAPSHOTS"
+    }
   }
 
   gke_cluster = {
@@ -75,6 +83,7 @@ module "infrastructure" {
     logging_service          = "logging.googleapis.com/kubernetes"
     monitoring_service       = "monitoring.googleapis.com/kubernetes"
     master_ipv4_cidr_block   = "172.16.0.48/28"
+    enable_private_nodes     = true
     enable_private_endpoint  = false
     daily_maintenance_window = "05:00"
     authorized_networks = [
@@ -82,11 +91,29 @@ module "infrastructure" {
         display_name = "office-static-address"
         cidr_block   = "192.0.2.10/32"
       },
-      {
-        display_name = "developers-address-range"
-        cidr_block   = "192.0.2.0/24"
-      },
     ]
+  }
+
+  database_cloudsql = {
+    name              = "openwisp-cloudsql-instance01"
+    tier              = "db-f1-micro"
+    username          = "admin"
+    password          = "admin"
+    database          = "openwisp_db"
+    require_ssl       = false
+    sslmode           = "disable"
+    availability_type = "ZONAL"
+    disk_size         = 10
+    disk_type         = "PD_HDD"
+    auto_backup = {
+      enabled    = true
+      start_time = "00:00"
+    }
+    maintaince = {
+      day   = 7
+      hour  = 3
+      track = "stable"
+    }
   }
 
   network_config = {
@@ -98,7 +125,7 @@ module "infrastructure" {
     http_loadbalancer_ip_name = "openwisp-http-loadbalancer-ip"
     openvpn_ip_name           = "openwisp-openvpn-ip"
     freeradius_ip_name        = "openwisp-freeradius-ip"
-    openwisp_dns_name         = "example.com"
+    openwisp_dns_name         = "atb00ker.tk"
     openwisp_dns_zone_name    = "openwisp-dns"
     openwisp_dns_records_ttl  = 300
     subnet_flowlogs = {
